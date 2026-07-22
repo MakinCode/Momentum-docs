@@ -1,134 +1,77 @@
-# Privacy Policy for Momentum
+Privacy Policy for Momentum
+Last Updated: July 22, 2026
 
-**Last Updated: June 18, 2026**
+1. Introduction
+Momentum ("the App") is an accountability and habit-coaching app. This Privacy Policy explains what information Momentum collects, how it's used, where it's stored, and the choices you have — written to match what the App actually does, not a generic template.
 
-## 1. Introduction
+If you do not agree with this policy, please do not use the App.
 
-Momentum ("the App") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and related services.
+2. Information We Collect
+2.1 Account Information
+When you sign in (email/password or Google Sign-In), we collect your email address and display name via Firebase Authentication. We do not receive or store your password — that's handled entirely by Firebase/Google's authentication infrastructure.
 
-Please read this Privacy Policy carefully. If you do not agree with our policies and practices, please do not use our App.
+2.2 Information You Provide
+Profile information: your stated identity goal, top goals, struggle areas (e.g. motivation, forgetfulness, procrastination), and structure preference
+Tasks, habits, and events: titles, categories, scheduled dates/times, priority, duration, completion status, and notes
+Daily logs: fulfillment scores and reflections you record
+Coach conversations: every message you send to the AI Coach, and its replies
+Alarm and check-in settings: your chosen wake-up time, check-in times, and which days they're active
+2.3 Information Collected Automatically
+Push notification token: an identifier issued by Firebase Cloud Messaging, used only to deliver this app's own notifications to your device
+Lifetime stats: counters such as tasks completed, current/longest streak — derived from your own task activity
+Crash and error reports: if the app crashes or hits an unexpected error, technical details (device model, OS version, app version, and a stack trace) are sent to Firebase Crashlytics so we can fix the problem. These reports do not intentionally include your task content or coach conversations.
+Gemini usage counters: a daily count of AI Coach requests and an approximate token count, used only to enforce a fair-use daily limit and are not linked to conversation content beyond that count
+2.4 What We Do Not Collect
+Momentum has no advertising SDK, no third-party analytics SDK, and does not track you across other apps or websites. There is no in-app purchase or payment data collection at this time.
 
-## 2. Information We Collect
+3. How Your Information Is Stored
+All of the information in Section 2.2 and 2.3 (profile, tasks, daily logs, coach conversations, alarm/check-in settings, push token, lifetime stats) is stored in Firestore, Google's cloud database, under Google Cloud/Firebase infrastructure — not only on your device. This lets your data sync correctly if you reinstall the app or sign in again, and is what makes account deletion (Section 6) meaningfully complete.
 
-### 2.1 Information You Provide Directly
+Two things are genuinely device-local and never leave your phone:
 
-We collect information you voluntarily provide when using the App:
+Scheduled local notifications (task reminders, the wake-up alarm's day-to-day scheduling, check-in nudges) are scheduled directly with Android's notification system on your device.
+Your chosen notification sound is a setting on your device's own notification channel, handled by Android, not by Momentum.
+4. The AI Coach and Google Gemini
+When you use the AI Coach — sending a chat message, requesting a daily greeting, or generating an insight — the relevant context (your goals, struggles, recent task activity, and the conversation itself) is sent server-side to Google's Gemini API to generate a response. This happens through Momentum's own backend (a Firebase Cloud Function), using Momentum's own API credentials — you are never asked for your own API key.
 
-- **Profile Information**: Name, desired identity, personal goals, struggle areas (motivation, forgetfulness, procrastination, overwhelm), and structure preferences
-- **Task Data**: Tasks you create, including titles, categories (Health, Family, Learning, Work, Home, Recreation, Relationships), priorities, descriptions, completion status, and timestamps
-- **Reflections**: Daily reflections, insights, and journal entries you create
-- **Goals and Preferences**: Your personal development goals, behavioral preferences, and app settings
-- **Mini-Tasks**: Subtasks, their completion status, time allocations, and time spent
+This transmission is necessary to generate any AI Coach response; there is no way to use the AI Coach without it.
+Google's handling of this data is governed by Google's Privacy Policy and their API terms of service.
+You can use every other part of Momentum (tasks, habits, calendar, alarms, check-ins) without ever opening the Coach, and none of your data reaches Gemini unless you do.
+Not every Coach interaction calls Gemini — some daily greetings are generated from a template using your own stats when nothing meaningful has changed, at no data-transmission cost beyond what's already stored in Firestore.
+5. How We Use Your Information
+Core functionality: creating, scheduling, and tracking your tasks, habits, and events
+Reminders and alarms: scheduling and delivering local notifications and, as a reliability backstop for time-critical alerts (task-start reminders, the wake-up alarm), a server-triggered push notification via Firebase Cloud Messaging
+AI coaching: generating personalized responses and proactive check-ins via Google Gemini (Section 4)
+Crash diagnostics: identifying and fixing bugs (Section 2.3)
+Abuse and cost protection: per-account daily limits on AI requests and notification-scheduling operations, so a bug or bad actor can't run up unbounded usage
+6. Your Rights and Choices
+6.1 Delete Your Account
+You can permanently delete your account from Profile → Delete account inside the App. This immediately and permanently deletes your profile, tasks, daily logs, coach conversations, alarm/check-in settings, and your Firebase Authentication account itself. This action cannot be undone and does not require contacting us.
 
-### 2.2 Information Collected Automatically
+6.2 Notification Controls
+You can enable or disable notification permissions, the exact-alarm permission, and battery-optimization exemption at any time through your device's own system settings — the App surfaces links to these directly from Profile → Notifications & alarms.
 
-- **App Usage Data**: Features accessed, time spent in different sections, completion rates
-- **Notification Preferences**: Whether you've opted into notifications and alarms
-- **Device Information**: Device type, operating system version, app version
-- **Audio Data**: Audio alarm sound files stored and played locally on your device
+6.3 Avoiding the AI Coach
+Since there's no separate opt-out toggle, the simplest way to avoid any data reaching Google Gemini is to not open the Coach section of the app — every other feature works independently of it.
 
-### 2.3 Third-Party Services
+7. Data Sharing
+We share information only with the service providers necessary to run the App:
 
-The App uses **Google Gemini API** for AI-powered coaching features. When you interact with the AI Coach:
-- Your tasks, goals, and relevant profile information may be sent to Google's Gemini API to generate personalized coaching advice
-- This transmission is necessary to provide the AI coaching feature
+Google Firebase (Authentication, Firestore, Cloud Functions, Cloud Messaging, Crashlytics) — the infrastructure the App runs on
+Google Gemini API — only for AI Coach requests you initiate (Section 4)
+We do not sell, rent, or trade your personal information. We may disclose information if legally required to do so (e.g. a valid court order).
 
-## 3. How We Use Your Information
+8. Data Retention
+Your data is retained for as long as your account exists. Deleting your account (Section 6.1) permanently removes it from our systems immediately. Independent of your account, Google may retain its own infrastructure-level logs (e.g. Cloud Function invocation logs, Gemini API request logs) according to Google's own retention policies — these are operational logs, not a substitute copy of your data.
 
-We use the collected information to:
+9. Children's Privacy
+Momentum is not directed at children under 13, and we do not knowingly collect information from children under 13. If you believe a child has provided us information, contact us (Section 11) and we will delete it.
 
-1. **Provide Core Features**: Enable task tracking, goal management, and daily planning
-2. **AI Coaching**: Generate personalized coaching messages through the Gemini API based on your tasks and goals
-3. **Notifications and Reminders**: Send push notifications and alarms based on your task schedules and preferences
-4. **App Improvement**: Understand app usage patterns to improve features and user experience
-5. **Personalization**: Customize the app experience based on your structure preferences and behavioral patterns
-6. **Account Management**: Maintain your app profile and settings
+10. International Data Transfer
+Momentum runs on Google Cloud/Firebase infrastructure, which may process and store data in countries other than your own, including the United States. By using the App, you consent to this transfer.
 
-## 4. Data Storage and Security
+11. Contact
+Questions about this policy or your data: [insert real support email before publishing]
 
-### 4.1 Local Storage
-- **Primary Storage**: Most of your data (profile, tasks, reflections, goals) is stored locally on your device using the browser's local storage
-- **Device Security**: Your data is protected by your device's security features and operating system
-- **No Cloud Backup**: By default, your data is not automatically backed up to cloud services
-
-### 4.2 Google Gemini API
-- **API Transmission**: Data sent to Google Gemini API is subject to Google's Privacy Policy
-- **Temporary Processing**: Information sent for AI coaching is used only to generate responses and is not used by Google for training or other purposes beyond serving your request
-- **Your Responsibility**: You are responsible for the content you send to the AI Coach
-
-### 4.3 Security Measures
-We implement reasonable security measures to protect your information, including:
-- Local encryption of sensitive data where applicable
-- Secure transmission protocols for API communications
-- Regular security updates to the App
-
-## 5. Data Sharing and Disclosure
-
-### 5.1 Third-Party Service Providers
-We may share necessary information with:
-- **Google (Gemini API)**: To provide AI coaching services
-- **Analytics Providers** (if applicable): To understand app usage (anonymized, where possible)
-- **Notification Services**: To deliver push notifications on supported devices
-
-### 5.2 Legal Requirements
-We may disclose your information if required by law or in response to valid requests by public authorities.
-
-### 5.3 No Sale of Data
-We do not sell, trade, or rent your personal information to third parties for marketing purposes.
-
-## 6. Your Privacy Rights
-
-### 6.1 Access and Control
-- You have the right to access, review, and update your personal information within the App
-- You can delete your profile and all associated data within the App settings
-- You can export your data or request a copy of your information
-
-### 6.2 Notification Preferences
-- You can opt-in or opt-out of push notifications through app settings
-- You can disable alarms and audio notifications at any time
-
-### 6.3 Google Gemini API
-- You can choose not to use the AI Coach feature to avoid sharing data with Google
-- Review Google's Privacy Policy at https://policies.google.com/privacy for their data practices
-
-## 7. Data Retention
-
-- **While Using the App**: Your data is retained as long as you maintain an active profile
-- **After Deletion**: Data is permanently deleted from your device when you delete your profile or app
-- **API Logs**: Google may retain logs of API requests according to their retention policies
-
-## 8. Children's Privacy
-
-Momentum is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that we have collected information from a child under 13, we will delete such information promptly.
-
-## 9. International Data Transfer
-
-If you are accessing the App from outside your country of residence, your information may be transferred to, stored in, and processed in countries other than your country of residence. By using the App, you consent to such transfers.
-
-## 10. Changes to This Privacy Policy
-
-We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. The "Last Updated" date at the top of this policy will be updated. Your continued use of the App following the posting of revised Privacy Policy means that you accept and agree to the changes.
-
-## 11. Contact Us
-
-If you have questions about this Privacy Policy, your privacy, or our privacy practices, please contact us at:
-
-**Email**: [Your Contact Email]  
-**App Support**: [Your Support Portal/Website]
-
-## 12. Additional Information
-
-### 12.1 California Privacy Rights (CCPA)
-If you are a California resident, you have specific rights regarding your personal information as outlined in the California Consumer Privacy Act. Please refer to our supplemental California Privacy Notice.
-
-### 12.2 European Privacy Rights (GDPR)
-If you are a resident of the European Union, you have rights under the General Data Protection Regulation. Please refer to our supplemental EU Privacy Notice.
-
-### 12.3 Android-Specific Privacy
-- The App may request permissions for notifications, audio playback, and device sensors
-- You can manage app permissions through your Android device settings
-- We only use permissions necessary to deliver the features you've requested
-
----
-
-**Your privacy is important to us. Thank you for using Momentum.**
+12. Changes to This Policy
+We'll update the "Last Updated" date above whenever this policy changes. Continued use of the App after an update means you accept the revised policy.
