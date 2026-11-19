@@ -38,7 +38,7 @@ We do not collect payment card details directly — if you subscribe to Pro, pay
 | Data | Purpose | Shared with |
 |---|---|---|
 | Account/profile/tasks | Running the app's core features | Stored in our Firebase/Google Cloud database. Not shared with anyone else. |
-| Coach conversations, goals, struggles | Generating your coach's replies | Sent to **DeepSeek**, the third-party AI provider that powers the coach. Also stored in our own database so the coach has continuity across sessions. |
+| Coach conversations, and your onboarding answers (who you want to become, goals, struggles, successful day, preferred coaching style) | Generating your coach's replies | Sent to **DeepSeek**, the third-party AI provider that powers the coach. Also stored in our own database so the coach has continuity across sessions. |
 | Push token | Delivering reminders and alarms | Google's Firebase Cloud Messaging (the delivery mechanism for Android notifications) |
 | Crash reports | Fixing bugs | Firebase Crashlytics (Google) |
 | Voice typing audio | Turning your speech into text | Your phone's speech service (e.g. Google or Samsung), under their own privacy terms. Not sent to us. |
