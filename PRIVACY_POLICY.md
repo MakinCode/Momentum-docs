@@ -1,6 +1,6 @@
 # Momentum Privacy Policy
 
-**Last updated:** 31 July 2026
+**Last updated:** 19 November 2026
 
 This policy explains what personal data the Momentum app ("Momentum", "we", "us") collects, why, and what rights you have over it. It's written to describe what the app actually does — not aspirational or boilerplate language — so it should be kept in sync with the app whenever data handling changes.
 
@@ -22,6 +22,7 @@ Momentum is developed and operated by **Paul Elliott**, a sole developer based i
 - Your conversation history with the coach
 - Daily activity logs used to generate coaching context
 - **Pro tier only:** a longer-term memory of goals, patterns, obstacles, and wins the coach has picked up from conversation, and short notes about people you've mentioned (e.g. "Sarah — running buddy") — kept deliberately minimal, just enough for the coach to reference them naturally
+- **Pro tier only:** when you tick off a habit with no set time, and which habits you tick off and in what order, looked at over the last 4 weeks to spot a regular time; if there is one, the coach may mention it and we may send you one notification suggesting it (at most once a month per habit). Also a short list of what matters most to you (e.g. "Family", "Health"), picked up from your coach conversations, used by the coach to suggest which task to do first. It's cleared when you clear AI memory
 
 **Device & usage**
 - A push-notification token tied to your device, so reminders can reach you
@@ -75,35 +76,3 @@ Data is encrypted in transit (TLS) and at rest, using Google Cloud/Firebase's pl
 ## Changes to this policy
 
 If we make a material change to what we collect or how we use it, we'll update this page and the "Last updated" date above. Continuing to use Momentum after a change means you accept the update.
-
----
-
-<!--
-INTERNAL NOTE — not part of the published policy, strip before publishing:
-
-Generated 2026-07-30 against the actual current codebase (audited via file-level
-tracing, not assumptions) so this reflects real behavior rather than generic
-privacy-policy boilerplate. Before publishing:
-
-1. Fill in [DATE OF PUBLICATION]. Developer name and contact email are set.
-2. China-hosting is confirmed directly against DeepSeek's own privacy policy
-   (cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html, fetched
-   2026-07-30) — it applies to API traffic, not just their consumer app.
-   Since DeepSeek doesn't name a transfer safeguard, the legal basis is now
-   explicit consent (UK GDPR Article 49(1)(a)), gated in onboarding — see
-   Onboarding.jsx's "privacy" step and UserProfile.ai_processing_consent_at.
-   Get a solicitor to review the actual consent wording before shipping;
-   Article 49(1)(a) has specific informed-consent requirements this hasn't
-   been checked against.
-   Still open: whether Momentum's API account has opted out of DeepSeek using
-   sent data for model training, and reflecting that choice in the "Model
-   training" line above.
-3. Re-check this document whenever data handling changes (new AI provider,
-   new third-party SDK, retention policy changes, etc.) — it will drift out of
-   sync with the app otherwise, which is the exact problem this document was
-   written to fix in the first place (see the in-app onboarding copy fix in
-   the same batch of work, commit c0d47bc).
-4. Also update the app's Play Console "Data safety" section to match this
-   document once published — that's a separate Play Console form, not
-   something in this repo.
--->
