@@ -29,6 +29,7 @@ Momentum is developed and operated by **Paul Elliott**, a sole developer based i
 - Your device's timezone offset, used to correctly reset daily limits and reminders at your local midnight, not UTC
 - Usage counters (e.g. how many AI messages or items you've created that day), used only to enforce plan limits
 - Crash and diagnostic data if the app crashes (via Firebase Crashlytics)
+- **Microphone (only if you use voice typing in the coach):** while the mic button is on, your speech is turned into text by your phone's own speech service (e.g. Google or Samsung). Momentum never receives or stores the audio, only the text that appears in the message box, and only if you send it
 
 We do not collect payment card details directly — if you subscribe to Pro, payment is handled entirely by Google Play, and we only receive confirmation of your subscription status.
 
@@ -40,6 +41,7 @@ We do not collect payment card details directly — if you subscribe to Pro, pay
 | Coach conversations, goals, struggles | Generating your coach's replies | Sent to **DeepSeek**, the third-party AI provider that powers the coach. Also stored in our own database so the coach has continuity across sessions. |
 | Push token | Delivering reminders and alarms | Google's Firebase Cloud Messaging (the delivery mechanism for Android notifications) |
 | Crash reports | Fixing bugs | Firebase Crashlytics (Google) |
+| Voice typing audio | Turning your speech into text | Your phone's speech service (e.g. Google or Samsung), under their own privacy terms. Not sent to us. |
 | Subscription status | Unlocking Pro features | Google Play Billing |
 
 **We never sell your data.** We don't share it with advertisers, data brokers, or anyone outside the processors listed above.
